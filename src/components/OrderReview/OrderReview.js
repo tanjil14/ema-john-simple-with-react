@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router";
-import { deleteFromDb } from "../../utilities/fakedb";
+import { clearTheCart, deleteFromDb } from "../../utilities/fakedb";
 import Cart from "../Cart/Cart";
 import useCart from "../hooks/useCart";
 import useProducts from "../hooks/useProduct";
@@ -16,6 +16,8 @@ const OrderReview = () => {
   };
   const handleOrder = () => {
     history.push("/placeorder");
+    setCart([]);
+    clearTheCart();
   };
   return (
     <div className="shop-container">
