@@ -2,17 +2,18 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header/Header";
 import Inventory from "./components/Inventory/Inventory";
+import Login from "./components/Login/Login";
 import NotFound from "./components/NotFound/NotFound";
 import OrderReview from "./components/OrderReview/OrderReview";
-import PlaceOrder from './components/PlaceOrder/PlaceOrder'
+import PlaceOrder from "./components/PlaceOrder/PlaceOrder";
+import Register from "./components/Register/Register";
 import Shop from "./components/Shop/Shop";
 
 function App() {
   return (
     <div>
-      
       <Router>
-      <Header></Header>
+        <Header></Header>
         <Switch>
           <Route exact path="/">
             <Shop></Shop>
@@ -24,10 +25,16 @@ function App() {
             <OrderReview />
           </Route>
           <Route exact path="/inventory">
-            <Inventory/>
+            <Inventory />
           </Route>
           <Route path="/placeorder">
-                   <PlaceOrder/>
+            <PlaceOrder />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/register">
+            <Register />
           </Route>
           <Route path="*">
             <NotFound></NotFound>
