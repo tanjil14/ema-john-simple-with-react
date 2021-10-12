@@ -13,10 +13,7 @@ const useFirebase = () => {
   const googleProvider = new GoogleAuthProvider();
   const auth = getAuth();
   const signInUsingGoogle = () => {
-    signInWithPopup(auth, googleProvider).then((result) => {
-      setUser(result.user);
-      console.log(result.user);
-    });
+    return signInWithPopup(auth, googleProvider);
   };
 
   const logOut = () => {
@@ -29,7 +26,7 @@ const useFirebase = () => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         console.log(user);
-        setUser(user)
+        setUser(user);
       }
     });
   }, [auth]);

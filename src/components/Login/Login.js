@@ -1,9 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import "./Login.css";
 const Login = () => {
   const { signInUsingGoogle } = useAuth();
+  const location = useLocation();
+  const history = useHistory();
+  const redirect_url = location.state?.from || "/shop";
+  const handleGoogleSignIn = () => {
+    signInUsingGoogle().then((result) => {
+      history.push(redirect_url);
+    });
+  };
   return (
     <div className="login-form">
       <div>
@@ -21,7 +29,7 @@ const Login = () => {
         <div>
           ---------------or--------------
           <br />
-          <button onClick={signInUsingGoogle} className="btn-regular">
+          <button onClick={handleGoogleSignIn} className="btn-regular">
             Google Sign-in
           </button>
         </div>
