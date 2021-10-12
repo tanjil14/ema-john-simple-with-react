@@ -13,8 +13,17 @@
  - Create Register Component
  - Create Route for Login and Register
 
- **Step 2:**
+ **Step 3:**
  - Set-up sign-in method
  - Set-up sign-out method
  - user state
  - special observer
+
+ **Step 4:**
+ - Create a auth context
+ - Create context provider
+ - use Auth Provider
+ - create useAuth hook
+
+ **Step 5:**
+ - create private route
